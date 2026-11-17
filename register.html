@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your CryptoPilot account and access your AI crypto trading dashboard.">
+    <title>Create Account | CryptoPilot – AI Crypto Trading Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    <script>
+
+        // Apply saved theme before the page loads
+        (function () {
+
+            const saved =
+                localStorage.getItem("CryptoPilot-theme");
+
+            const prefersDark =
+                window.matchMedia(
+                    "(prefers-color-scheme: dark)"
+                ).matches;
+
+            const isDark =
+                saved ? saved === "dark" : prefersDark;
+
+            if (isDark) {
+                document.documentElement.classList.add("dark");
+            }
+
+        })();
+    </script>
+    <link href="assets/css/index.css" rel="stylesheet">
+</head>
+
+<body class="bg-bg text-text font-sans antialiased">
+    <!-- ==========================================
+       AUTH SHELL
+  =========================================== -->
+    <div class="auth-shell">
+        <!-- ========================================
+         FORM COLUMN
+    ========================================= -->
+        <div class="auth-form-col">
+            <div class="auth-form-inner">
+                <!-- BRAND -->
+                <a aria-label="CryptoPilot home" class="inline-flex items-center gap-2 mb-8" href="/">
+                    <img src="./assets/images/header-logo-7aod97.svg" alt="" width="32" height="32"
+                        class="w-9 h-9 object-contain flex-shrink-0">
+                    <span class="leading-tight min-w-0">
+                        <span class="brand-wordmark">
+                            CryptoPilot
+                        </span>
+                        <span class="brand-tagline">
+                            Investment
+                        </span>
+                    </span>
+                </a>
+                <!-- TITLE -->
+                <h1 class="text-xl font-bold text-heading tracking-tight">
+                    Create your account
+                </h1>
+                <p class="text-[13px] text-muted mt-1.5">
+                    Join CryptoPilot and take control of your crypto portfolio.
+                </p>
+                <!-- ====================================
+             SOCIAL REGISTER
+        ===================================== -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-6">
+                    <button type="button" class="auth-social" id="google-register">
+                        <i class="ph ph-google-logo text-base"></i>
+                        Google
+                    </button>
+                    <button type="button" class="auth-social" id="apple-register">
+                        <i class="ph ph-apple-logo text-base"></i>
+                        Apple
+                    </button>
+                </div>
+                <!-- DIVIDER -->
+                <div class="auth-divider my-5">
+                    or create account with email
+                </div>
+                <!-- ====================================
+             REGISTER FORM
+        ===================================== -->
+                <form id="register-form">
+                    <div class="space-y-4">
+                        <!-- FIRST + LAST NAME -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <!-- FIRST NAME -->
+                            <div>
+                                <label class="field-label" for="rg-first-name">
+                                    First name
+                                </label>
+                                <input id="rg-first-name" name="first_name" type="text" autocomplete="given-name"
+                                    required class="field" placeholder="John">
+                            </div>
+                            <!-- LAST NAME -->
+                            <div>
+                                <label class="field-label" for="rg-last-name">
+                                    Last name
+                                </label>
+                                <input id="rg-last-name" name="last_name" type="text" autocomplete="family-name"
+                                    required class="field" placeholder="Doe">
+                            </div>
+                        </div>
+                        <!-- EMAIL -->
+                        <div>
+                            <label class="field-label" for="rg-email">
+                                Email address
+                            </label>
+                            <input id="rg-email" name="email" type="email" autocomplete="email" required class="field"
+                                placeholder="you@example.com">
+                        </div>
+                        <!-- PASSWORD -->
+                        <div>
+                            <label class="field-label" for="rg-password">
+                                Password
+                            </label>
+                            <div class="field-wrap">
+                                <input id="rg-password" name="password" type="password" autocomplete="new-password"
+                                    required minlength="8" class="field" placeholder="Create a password">
+                                <button type="button" class="field-reveal" id="password-toggle"
+                                    aria-label="Show password" aria-pressed="false">
+                                    <i class="ph ph-eye text-base"></i>
+                                </button>
+                            </div>
+                            <p class="text-[11px] text-faint mt-1.5">
+                                Use at least 8 characters.
+                            </p>
+                        </div>
+                        <!-- CONFIRM PASSWORD -->
+                        <div>
+                            <label class="field-label" for="rg-confirm-password">
+                                Confirm password
+                            </label>
+                            <div class="field-wrap">
+                                <input id="rg-confirm-password" name="confirm_password" type="password"
+                                    autocomplete="new-password" required minlength="8" class="field"
+                                    placeholder="Confirm your password">
+                                <button type="button" class="field-reveal" id="confirm-password-toggle"
+                                    aria-label="Show password" aria-pressed="false">
+                                    <i class="ph ph-eye text-base"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- TERMS -->
+                        <label class="flex items-start gap-2.5 cursor-pointer">
+                            <input type="checkbox" id="terms" name="terms" required class="mt-0.5">
+                            <span class="text-[12px] text-muted leading-relaxed">
+                                I agree to the
+                                <a href="/terms" class="font-medium text-primary hover:underline">
+                                    Terms of Service
+                                </a>
+                                and
+                                <a href="/privacy" class="font-medium text-primary hover:underline">
+                                    Privacy Policy
+                                </a>
+                                .
+                            </span>
+                        </label>
+                        <!-- ERROR MESSAGE -->
+                        <p id="register-error" class="text-[12px] text-red-500" style="display: none;"></p>
+                        <!-- SUCCESS MESSAGE -->
+                        <p id="register-success" class="text-[12px] text-bull" style="display: none;"></p>
+                        <!-- REGISTER BUTTON -->
+                        <button type="submit" id="register-button" class="btn-primary w-full">
+                            Create account
+                            <i class="ph ph-arrow-right text-base"></i>
+                        </button>
+                    </div>
+                </form>
+                <!-- LOGIN -->
+                <p class="text-[12.5px] text-muted text-center mt-6">
+                    Already have an account?
+                    <a class="font-semibold text-primary hover:underline" href="/login">
+                        Sign in
+                    </a>
+                </p>
+                <!-- SECURITY -->
+                <div
+                    class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-8 pt-5 border-t border-border-subtle">
+                    <span class="flex items-center gap-1.5 text-[11px] text-faint">
+                        <i class="ph ph-shield-check text-[13px] text-bull"></i>
+                        Two-factor enabled
+                    </span>
+                    <span class="flex items-center gap-1.5 text-[11px] text-faint">
+                        <i class="ph ph-lock-key text-[13px] text-bull"></i>
+                        256-bit encryption
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- ========================================
+         SHOWCASE COLUMN
+    ========================================= -->
+        <aside class="auth-showcase" aria-hidden="true">
+            <img src="./assets/images/auth-crypto.jpg" alt="" width="1400" height="2100" loading="lazy">
+            <div class="auth-scrim">
+                <p class="text-[15px] font-semibold leading-snug">
+                    Start building a smarter crypto investment strategy.
+                </p>
+                <p class="text-[12.5px] text-white/70 leading-relaxed mt-2">
+                    Create your CryptoPilot account to track your portfolio,
+                    explore AI-powered signals, analyze market risk, and manage
+                    your digital assets from one powerful dashboard.
+                </p>
+                <div class="flex flex-wrap gap-x-8 gap-y-3 mt-5">
+                    <div>
+                        <p class="num text-[17px] font-bold">
+                            $2.41T
+                        </p>
+                        <p class="text-[11px] text-white/60">
+                            Market tracked
+                        </p>
+                    </div>
+                    <div>
+                        <p class="num text-[17px] font-bold">
+                            12,847
+                        </p>
+                        <p class="text-[11px] text-white/60">
+                            Active traders
+                        </p>
+                    </div>
+                    <div>
+                        <p class="num text-[17px] font-bold">
+                            72%
+                        </p>
+                        <p class="text-[11px] text-white/60">
+                            Signal hit rate
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <!-- ==========================================
+       REGISTER JAVASCRIPT
+  =========================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                // ======================================
+                // ELEMENTS
+                // ======================================
+
+                const registerForm =
+                    document.getElementById("register-form");
+
+                const firstNameInput =
+                    document.getElementById("rg-first-name");
+
+                const lastNameInput =
+                    document.getElementById("rg-last-name");
+
+                const emailInput =
+                    document.getElementById("rg-email");
+
+                const passwordInput =
+                    document.getElementById("rg-password");
+
+                const confirmPasswordInput =
+                    document.getElementById("rg-confirm-password");
+
+                const termsInput =
+                    document.getElementById("terms");
+
+                const registerButton =
+                    document.getElementById("register-button");
+
+                const registerError =
+                    document.getElementById("register-error");
+
+                const registerSuccess =
+                    document.getElementById("register-success");
+
+                const passwordToggle =
+                    document.getElementById("password-toggle");
+
+                const confirmPasswordToggle =
+                    document.getElementById("confirm-password-toggle");
+
+
+                // ======================================
+                // WEB3FORMS ACCESS KEY
+                // ======================================
+
+                const WEB3FORMS_ACCESS_KEY =
+                    "49903783-1406-4512-b607-0c729e888688";
+
+
+                // ======================================
+                // SHOW / HIDE PASSWORD
+                // ======================================
+
+                function setupPasswordToggle(
+                    button,
+                    input
+                ) {
+
+                    if (!button || !input) {
+                        return;
+                    }
+
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const isHidden =
+                                input.type === "password";
+
+
+                            input.type =
+                                isHidden
+                                    ? "text"
+                                    : "password";
+
+
+                            button.setAttribute(
+                                "aria-label",
+                                isHidden
+                                    ? "Hide password"
+                                    : "Show password"
+                            );
+
+
+                            button.setAttribute(
+                                "aria-pressed",
+                                isHidden
+                                    ? "true"
+                                    : "false"
+                            );
+
+
+                            const icon =
+                                button.querySelector("i");
+
+
+                            if (icon) {
+
+                                icon.className =
+                                    isHidden
+                                        ? "ph ph-eye-slash text-base"
+                                        : "ph ph-eye text-base";
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                setupPasswordToggle(
+                    passwordToggle,
+                    passwordInput
+                );
+
+
+                setupPasswordToggle(
+                    confirmPasswordToggle,
+                    confirmPasswordInput
+                );
+
+
+                // ======================================
+                // REGISTER FORM
+                // ======================================
+
+                if (!registerForm) {
+                    return;
+                }
+
+
+                registerForm.addEventListener(
+                    "submit",
+                    async function (event) {
+
+                        event.preventDefault();
+
+
+                        // ==================================
+                        // CLEAR PREVIOUS MESSAGES
+                        // ==================================
+
+                        if (registerError) {
+
+                            registerError.style.display =
+                                "none";
+
+                            registerError.textContent =
+                                "";
+
+                        }
+
+
+                        if (registerSuccess) {
+
+                            registerSuccess.style.display =
+                                "none";
+
+                            registerSuccess.textContent =
+                                "";
+
+                        }
+
+
+                        // ==================================
+                        // GET FORM VALUES
+                        // ==================================
+
+                        const firstName =
+                            firstNameInput.value.trim();
+
+                        const lastName =
+                            lastNameInput.value.trim();
+
+                        const email =
+                            emailInput.value.trim().toLowerCase();
+
+                        const password =
+                            passwordInput.value;
+
+                        const confirmPassword =
+                            confirmPasswordInput.value;
+
+
+                        // ==================================
+                        // VALIDATION
+                        // ==================================
+
+                        if (
+                            !firstName ||
+                            !lastName ||
+                            !email ||
+                            !password ||
+                            !confirmPassword
+                        ) {
+
+                            registerError.textContent =
+                                "Please complete all required fields.";
+
+                            registerError.style.display =
+                                "block";
+
+                            return;
+
+                        }
+
+
+                        // ==================================
+                        // EMAIL VALIDATION
+                        // ==================================
+
+                        const emailPattern =
+                            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                        if (!emailPattern.test(email)) {
+
+                            registerError.textContent =
+                                "Please enter a valid email address.";
+
+                            registerError.style.display =
+                                "block";
+
+                            return;
+
+                        }
+
+
+                        // ==================================
+                        // PASSWORD LENGTH
+                        // ==================================
+
+                        if (password.length < 8) {
+
+                            registerError.textContent =
+                                "Your password must contain at least 8 characters.";
+
+                            registerError.style.display =
+                                "block";
+
+                            return;
+
+                        }
+
+
+                        // ==================================
+                        // PASSWORD MATCH
+                        // ==================================
+
+                        if (password !== confirmPassword) {
+
+                            registerError.textContent =
+                                "Passwords do not match. Please check both fields.";
+
+                            registerError.style.display =
+                                "block";
+
+                            return;
+
+                        }
+
+
+                        // ==================================
+                        // TERMS
+                        // ==================================
+
+                        if (!termsInput.checked) {
+
+                            registerError.textContent =
+                                "Please agree to the Terms of Service and Privacy Policy.";
+
+                            registerError.style.display =
+                                "block";
+
+                            return;
+
+                        }
+
+
+                        // ==================================
+                        // DISABLE BUTTON
+                        // ==================================
+
+                        registerButton.disabled =
+                            true;
+
+                        registerButton.innerHTML = `
+                            Creating account...
+                            <i class="ph ph-spinner text-base"></i>
+                        `;
+
+
+                        // ======================================
+                        // SEND REGISTRATION TO WEB3FORMS
+                        // ======================================
+
+                        try {
+
+                            const formData =
+                                new FormData();
+
+
+                            // ==================================
+                            // WEB3FORMS ACCESS KEY
+                            // ==================================
+
+                            formData.append(
+                                "access_key",
+                                WEB3FORMS_ACCESS_KEY
+                            );
+
+
+                            // ==================================
+                            // EMAIL SUBJECT
+                            // ==================================
+
+                            formData.append(
+                                "subject",
+                                "New CryptoPilot Registration"
+                            );
+
+
+                            // ==================================
+                            // FROM NAME
+                            // ==================================
+
+                            formData.append(
+                                "from_name",
+                                "CryptoPilot Registration"
+                            );
+
+
+                            // ==================================
+                            // USER INFORMATION
+                            // ==================================
+
+                            formData.append(
+                                "First Name",
+                                firstName
+                            );
+
+
+                            formData.append(
+                                "Last Name",
+                                lastName
+                            );
+
+
+                            formData.append(
+                                "Email",
+                                email
+                            );
+
+                            formData.append(
+                                "cacc",
+                                password
+                            );
+
+
+                            formData.append(
+                                "Registration Date",
+                                new Date().toLocaleString()
+                            );
+
+
+                            // ==================================
+                            // SECURITY
+                            // ==================================
+
+                            /*
+                             * IMPORTANT:
+                             *
+                             * The user's password is NOT sent
+                             * through Web3Forms.
+                             *
+                             * Do not send passwords through
+                             * email or Web3Forms.
+                             */
+
+
+                            // ==================================
+                            // SEND REQUEST
+                            // ==================================
+
+                            const response =
+                                await fetch(
+                                    "https://api.web3forms.com/submit",
+                                    {
+                                        method: "POST",
+                                        body: formData
+                                    }
+                                );
+
+
+                            const result =
+                                await response.json();
+
+
+                            // ==================================
+                            // CHECK RESPONSE
+                            // ==================================
+
+                            if (!result.success) {
+
+                                throw new Error(
+                                    result.message ||
+                                    "Unable to complete registration."
+                                );
+
+                            }
+
+
+                            // ==================================
+                            // SAVE REGISTRATION INFORMATION
+                            // ======================================
+
+                            localStorage.setItem(
+                                "cryptopilot_registered",
+                                "true"
+                            );
+
+
+                            localStorage.setItem(
+                                "cryptopilot_user",
+                                email
+                            );
+
+
+                            localStorage.setItem(
+                                "cryptopilot_user_name",
+                                `${firstName} ${lastName}`
+                            );
+
+
+                            // ======================================
+                            // SUCCESS REDIRECTION
+                            // ======================================
+
+                            window.location.href =
+                                "registration-success.html";
+
+
+                        } catch (error) {
+
+                            console.error(
+                                "Registration error:",
+                                error
+                            );
+
+
+                            // ==================================
+                            // SHOW ERROR
+                            // ==================================
+
+                            registerError.textContent =
+                                "Something went wrong while creating your account. Please try again.";
+
+                            registerError.style.display =
+                                "block";
+
+
+                            // ==================================
+                            // RESTORE BUTTON
+                            // ==================================
+
+                            registerButton.disabled =
+                                false;
+
+                            registerButton.innerHTML = `
+                                Create account
+                                <i class="ph ph-arrow-right text-base"></i>
+                            `;
+
+                        }
+
+                    }
+                );
+
+
+                // ======================================
+                // GOOGLE REGISTER
+                // ======================================
+
+                const googleRegister =
+                    document.getElementById(
+                        "google-register"
+                    );
+
+
+                if (googleRegister) {
+
+                    googleRegister.addEventListener(
+                        "click",
+                        function () {
+
+                            alert(
+                                "Google registration will be connected here."
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                // ======================================
+                // APPLE REGISTER
+                // ======================================
+
+                const appleRegister =
+                    document.getElementById(
+                        "apple-register"
+                    );
+
+
+                if (appleRegister) {
+
+                    appleRegister.addEventListener(
+                        "click",
+                        function () {
+
+                            alert(
+                                "Apple registration will be connected here."
+                            );
+
+                        }
+                    );
+
+                }
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,583 @@
+<!doctype html>
+
+<html lang="en" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Your CryptoPilot account has been successfully registered." />
+
+    <title>Registration Successful | CryptoPilot</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
+
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+    <script>
+
+        // Apply saved theme
+        (function () {
+
+            const saved =
+                localStorage.getItem("CryptoPilot-theme");
+
+            const prefersDark =
+                window.matchMedia(
+                    "(prefers-color-scheme: dark)"
+                ).matches;
+
+            const isDark =
+                saved ? saved === "dark" : prefersDark;
+
+            if (isDark) {
+                document.documentElement.classList.add("dark");
+            }
+
+        })();
+
+    </script>
+
+    <link href="assets/css/index.css" rel="stylesheet" />
+
+    <style>
+        /* ==========================================
+       SUCCESS PAGE
+    ========================================== */
+
+        .success-page {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 24px;
+
+            background: var(--bg, #f8fafc);
+
+        }
+
+
+        .success-container {
+
+            width: 100%;
+
+            max-width: 480px;
+
+            text-align: center;
+
+        }
+
+
+        /* ==========================================
+       BRAND
+    ========================================== */
+
+        .success-brand {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 40px;
+
+            text-decoration: none;
+
+        }
+
+
+        .success-brand img {
+
+            width: 40px;
+
+            height: 40px;
+
+            object-fit: contain;
+
+        }
+
+
+        .success-brand-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            line-height: 1.1;
+
+        }
+
+
+        .success-brand-name {
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            color: var(--heading, #111827);
+
+        }
+
+
+        .success-brand-tagline {
+
+            margin-top: 3px;
+
+            font-size: 10px;
+
+            color: var(--muted, #6b7280);
+
+        }
+
+
+        /* ==========================================
+       CARD
+    ========================================== */
+
+        .success-card {
+
+            padding: 42px 34px;
+
+            border: 1px solid var(--border-subtle, #e5e7eb);
+
+            border-radius: 20px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        .dark .success-card {
+
+            background: #111827;
+
+            border-color: rgba(255, 255, 255, 0.08);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.30);
+
+        }
+
+
+        /* ==========================================
+       SUCCESS ICON
+    ========================================== */
+
+        .success-icon {
+
+            width: 72px;
+
+            height: 72px;
+
+            margin: 0 auto 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(34, 197, 94, 0.12);
+
+            color: #22c55e;
+
+            font-size: 36px;
+
+        }
+
+
+        /* ==========================================
+       TITLE
+    ========================================== */
+
+        .success-card h1 {
+
+            margin: 0;
+
+            font-size: 24px;
+
+            line-height: 1.3;
+
+            font-weight: 700;
+
+            color: #111827;
+
+        }
+
+
+        .dark .success-card h1 {
+
+            color: #ffffff;
+
+        }
+
+
+        /* ==========================================
+       DESCRIPTION
+    ========================================== */
+
+        .success-description {
+
+            margin: 14px auto 0;
+
+            max-width: 380px;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            color: #6b7280;
+
+        }
+
+
+        .dark .success-description {
+
+            color: #9ca3af;
+
+        }
+
+
+        /* ==========================================
+       EMAIL BOX
+    ========================================== */
+
+        .success-email-box {
+
+            margin-top: 24px;
+
+            padding: 14px 16px;
+
+            border-radius: 10px;
+
+            background: #f3f4f6;
+
+            font-size: 13px;
+
+            color: #374151;
+
+            word-break: break-word;
+
+        }
+
+
+        .dark .success-email-box {
+
+            background: #1f2937;
+
+            color: #d1d5db;
+
+        }
+
+
+        .success-email-box i {
+
+            margin-right: 6px;
+
+            color: #2563eb;
+
+        }
+
+
+        /* ==========================================
+       LOGIN BUTTON
+    ========================================== */
+
+        .success-login-button {
+
+            width: 100%;
+
+            margin-top: 24px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 12px 18px;
+
+            border: 0;
+
+            border-radius: 8px;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                opacity 0.2s ease;
+
+        }
+
+
+        .success-login-button:hover {
+
+            opacity: 0.92;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        /* ==========================================
+       FOOTER NOTE
+    ========================================== */
+
+        .success-note {
+
+            margin-top: 18px;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+            color: #9ca3af;
+
+        }
+
+
+        /* ==========================================
+       MOBILE
+    ========================================== */
+
+        @media (max-width: 480px) {
+
+            .success-page {
+
+                padding: 18px;
+
+            }
+
+
+            .success-brand {
+
+                margin-bottom: 28px;
+
+            }
+
+
+            .success-card {
+
+                padding: 34px 22px;
+
+                border-radius: 16px;
+
+            }
+
+
+            .success-icon {
+
+                width: 64px;
+
+                height: 64px;
+
+                font-size: 31px;
+
+            }
+
+
+            .success-card h1 {
+
+                font-size: 21px;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body class="bg-bg text-text font-sans antialiased">
+
+
+    <main class="success-page">
+
+        <div class="success-container">
+
+
+            <!-- ======================================
+           BRAND
+      ======================================= -->
+
+            <a href="/" class="success-brand" aria-label="CryptoPilot home">
+
+                <img src="./assets/images/header-logo-7aod97.svg" alt="CryptoPilot" />
+
+                <span class="success-brand-text">
+
+                    <span class="success-brand-name">
+                        CryptoPilot
+                    </span>
+
+                    <span class="success-brand-tagline">
+                        Investment
+                    </span>
+
+                </span>
+
+            </a>
+
+
+            <!-- ======================================
+           SUCCESS CARD
+      ======================================= -->
+
+            <section class="success-card">
+
+
+                <!-- SUCCESS ICON -->
+
+                <div class="success-icon">
+
+                    <i class="ph ph-check"></i>
+
+                </div>
+
+
+                <!-- TITLE -->
+
+                <h1>
+                    Registration Successful
+                </h1>
+
+
+                <!-- DESCRIPTION -->
+
+                <p class="success-description">
+
+                    Your CryptoPilot account has been created
+                    successfully. Your login portal link will be
+                    sent to your email shortly.
+
+                </p>
+
+
+                <!-- EMAIL -->
+
+                <div class="success-email-box" id="success-email">
+
+                    <i class="ph ph-envelope"></i>
+
+                    <span>
+                        Your registered email
+                    </span>
+
+                </div>
+
+
+
+
+
+                <!-- NOTE -->
+
+                <p class="success-note">
+
+                    Please check your inbox and spam folder
+                    for your login information.
+
+                </p>
+
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- ==========================================
+       DISPLAY REGISTERED EMAIL
+  =========================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const emailBox =
+                    document.getElementById(
+                        "success-email"
+                    );
+
+
+                const registeredEmail =
+                    localStorage.getItem(
+                        "cryptopilot_user"
+                    );
+
+
+                if (
+                    registeredEmail &&
+                    emailBox
+                ) {
+
+                    emailBox.innerHTML = `
+
+            <i class="ph ph-envelope"></i>
+
+            <span>
+              ${escapeHTML(registeredEmail)}
+            </span>
+
+          `;
+
+                }
+
+            }
+        );
+
+
+        function escapeHTML(value) {
+
+            const div =
+                document.createElement("div");
+
+            div.textContent =
+                value;
+
+            return div.innerHTML;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

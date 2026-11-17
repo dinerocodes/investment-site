@@ -1,0 +1,551 @@
+<!doctype html>
+
+<html lang="en" class="scroll-smooth">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="CryptoPilot Login – sign in to your AI crypto trading dashboard." />
+
+  <title>Sign In | CryptoPilot – AI Crypto Trading Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
+
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <script>
+
+    // Apply saved theme before the page loads
+    (function () {
+
+      const saved =
+        localStorage.getItem("CryptoPilot-theme");
+
+      const prefersDark =
+        window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+      const isDark =
+        saved ? saved === "dark" : prefersDark;
+
+      if (isDark) {
+        document.documentElement.classList.add("dark");
+      }
+
+    })();
+
+  </script>
+
+  <link href="assets/css/index.css" rel="stylesheet">
+
+</head>
+
+
+<body class="bg-bg text-text font-sans antialiased">
+
+  <!-- ==========================================
+       AUTH SHELL
+  =========================================== -->
+
+  <div class="auth-shell">
+
+
+    <!-- ========================================
+         FORM COLUMN
+    ========================================= -->
+
+    <div class="auth-form-col">
+
+      <div class="auth-form-inner">
+
+
+        <!-- BRAND -->
+
+        <a aria-label="CryptoPilot home" class="inline-flex items-center gap-2 mb-8" href="/">
+
+          <img src="./assets/images/header-logo-7aod97.svg" alt="" width="32" height="32"
+            class="w-9 h-9 object-contain flex-shrink-0" />
+
+          <span class="leading-tight min-w-0">
+
+            <span class="brand-wordmark">
+              CryptoPilot
+            </span>
+
+            <span class="brand-tagline">
+              Investment
+            </span>
+
+          </span>
+
+        </a>
+
+
+        <!-- TITLE -->
+
+        <h1 class="text-xl font-bold text-heading tracking-tight">
+          Welcome back
+        </h1>
+
+        <p class="text-[13px] text-muted mt-1.5">
+          Sign in to pick up where you left off.
+        </p>
+
+
+        <!-- ====================================
+             SOCIAL LOGIN
+        ===================================== -->
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-6">
+
+          <button type="button" class="auth-social">
+
+            <i class="ph ph-google-logo text-base"></i>
+
+            Google
+
+          </button>
+
+
+          <button type="button" class="auth-social">
+
+            <i class="ph ph-apple-logo text-base"></i>
+
+            Apple
+
+          </button>
+
+        </div>
+
+
+        <!-- DIVIDER -->
+
+        <div class="auth-divider my-5">
+          or sign in with email
+        </div>
+
+
+        <!-- ====================================
+             LOGIN FORM
+        ===================================== -->
+
+        <form id="login-form">
+
+          <div class="space-y-4">
+
+
+            <!-- EMAIL -->
+
+            <div>
+
+              <label class="field-label" for="lg-email">
+                Email address
+              </label>
+
+              <input id="lg-email" name="email" type="email" autocomplete="email" required class="field"
+                placeholder="you@example.com" />
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div>
+
+              <div class="flex items-center justify-between mb-1.5">
+
+                <label class="field-label mb-0" for="lg-password">
+                  Password
+                </label>
+
+                <a class="text-[11.5px] font-medium text-primary hover:underline" href="/forgot-password">
+                  Forgot password?
+                </a>
+
+              </div>
+
+
+              <div class="field-wrap">
+
+                <input id="lg-password" name="password" type="password" autocomplete="current-password" required
+                  class="field" placeholder="Enter your password" />
+
+
+                <button type="button" class="field-reveal" id="password-toggle" aria-label="Show password"
+                  aria-pressed="false">
+
+                  <i class="ph ph-eye text-base"></i>
+
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- KEEP SIGNED IN -->
+
+            <label class="flex items-center gap-2.5 cursor-pointer">
+
+              <button type="button" class="cp-dense-toggle" id="remember-toggle" role="switch" aria-checked="true"
+                aria-label="Keep me signed in"></button>
+
+              <span class="text-[12.5px] text-text">
+                Keep me signed in
+              </span>
+
+            </label>
+
+
+            <!-- ERROR MESSAGE -->
+
+            <p id="login-error" class="text-[12px] text-red-500" style="display: none;"></p>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button type="submit" id="login-button" class="btn-primary w-full">
+
+              Sign in
+
+              <i class="ph ph-arrow-right text-base"></i>
+
+            </button>
+
+          </div>
+
+        </form>
+
+
+        <!-- REGISTER -->
+
+        <p class="text-[12.5px] text-muted text-center mt-6">
+
+          Don't have an account?
+
+          <a class="font-semibold text-primary hover:underline" href="/register.html">
+            Create one
+          </a>
+
+        </p>
+
+
+        <!-- SECURITY -->
+
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-8 pt-5 border-t border-border-subtle">
+
+          <span class="flex items-center gap-1.5 text-[11px] text-faint">
+
+            <i class="ph ph-shield-check text-[13px] text-bull"></i>
+
+            Two-factor enabled
+
+          </span>
+
+
+          <span class="flex items-center gap-1.5 text-[11px] text-faint">
+
+            <i class="ph ph-lock-key text-[13px] text-bull"></i>
+
+            256-bit encryption
+
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ========================================
+         SHOWCASE COLUMN
+    ========================================= -->
+
+    <aside class="auth-showcase" aria-hidden="true">
+
+      <img src="./assets/images/auth-crypto.jpg" alt="" width="1400" height="2100" loading="lazy" />
+
+
+      <div class="auth-scrim">
+
+        <p class="text-[15px] font-semibold leading-snug">
+
+          AI signals, portfolio analytics and execution in one place.
+
+        </p>
+
+
+        <p class="text-[12.5px] text-white/70 leading-relaxed mt-2">
+
+          Track 2,847 assets, run risk analysis across your holdings, and
+          act on high-confidence signals without leaving the dashboard.
+
+        </p>
+
+
+        <div class="flex flex-wrap gap-x-8 gap-y-3 mt-5">
+
+
+          <div>
+
+            <p class="num text-[17px] font-bold">
+              $2.41T
+            </p>
+
+            <p class="text-[11px] text-white/60">
+              Market tracked
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <p class="num text-[17px] font-bold">
+              12,847
+            </p>
+
+            <p class="text-[11px] text-white/60">
+              Active traders
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <p class="num text-[17px] font-bold">
+              72%
+            </p>
+
+            <p class="text-[11px] text-white/60">
+              Signal hit rate
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+
+  <!-- ==========================================
+       LOGIN JAVASCRIPT
+  =========================================== -->
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+
+
+        // ======================================
+        // ELEMENTS
+        // ======================================
+
+        const loginForm =
+          document.getElementById("login-form");
+
+        const emailInput =
+          document.getElementById("lg-email");
+
+        const passwordInput =
+          document.getElementById("lg-password");
+
+        const loginButton =
+          document.getElementById("login-button");
+
+        const loginError =
+          document.getElementById("login-error");
+
+        const passwordToggle =
+          document.getElementById("password-toggle");
+
+
+        // ======================================
+        // LOGIN DETAILS
+        // ======================================
+
+        const VALID_EMAIL =
+          "admin@cryptopilot.com";
+
+        const VALID_PASSWORD =
+          "Admin@123";
+
+
+        // ======================================
+        // LOGIN
+        // ======================================
+
+        loginForm.addEventListener(
+          "submit",
+          function (event) {
+
+            event.preventDefault();
+
+
+            const email =
+              emailInput.value.trim();
+
+            const password =
+              passwordInput.value;
+
+
+            // Hide previous error
+
+            loginError.style.display = "none";
+
+            loginError.textContent = "";
+
+
+            // ==================================
+            // CHECK EMAIL AND PASSWORD
+            // ==================================
+
+            if (
+              email === VALID_EMAIL &&
+              password === VALID_PASSWORD
+            ) {
+
+
+              // Save login status
+
+              localStorage.setItem(
+                "cryptopilot_logged_in",
+                "true"
+              );
+
+
+              localStorage.setItem(
+                "cryptopilot_user",
+                email
+              );
+
+
+              // Disable button
+
+              loginButton.disabled = true;
+
+
+              // Show loading
+
+              loginButton.innerHTML = `
+                Signing in...
+                <i class="ph ph-spinner text-base"></i>
+              `;
+
+
+              // Redirect ONLY after
+              // successful credentials
+
+              setTimeout(
+                function () {
+
+                  window.location.href =
+                    "index.html";
+
+                },
+                700
+              );
+
+
+              return;
+            }
+
+
+            // ==================================
+            // WRONG LOGIN
+            // ==================================
+
+            loginError.textContent =
+              "Invalid email or password. Please check your details and try again.";
+
+            loginError.style.display =
+              "block";
+
+
+            // Make sure button is usable
+
+            loginButton.disabled = false;
+
+          }
+        );
+
+
+        // ======================================
+        // SHOW / HIDE PASSWORD
+        // ======================================
+
+        passwordToggle.addEventListener(
+          "click",
+          function () {
+
+            const isHidden =
+              passwordInput.type === "password";
+
+
+            passwordInput.type =
+              isHidden
+                ? "text"
+                : "password";
+
+
+            passwordToggle.setAttribute(
+              "aria-label",
+              isHidden
+                ? "Hide password"
+                : "Show password"
+            );
+
+
+            passwordToggle.setAttribute(
+              "aria-pressed",
+              isHidden
+                ? "true"
+                : "false"
+            );
+
+
+            const icon =
+              passwordToggle.querySelector("i");
+
+
+            if (icon) {
+
+              icon.className =
+                isHidden
+                  ? "ph ph-eye-slash text-base"
+                  : "ph ph-eye text-base";
+
+            }
+
+          }
+        );
+
+
+      }
+    );
+
+  </script>
+
+
+</body>
+
+</html>
